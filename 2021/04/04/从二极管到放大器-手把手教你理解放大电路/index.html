@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>从二极管到放大器-手把手教你理解放大电路 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="李辰剑&amp;#x2F;IcyChlorine 2021-3-22 引言大二上时上了《现代电子线路及实验(上)》, 从一开始就被三极管打懵了, 自己的“电路观”被崩塌了. 但不幸的是, 打破之后, 新的电路观却并没有建立起来(至少没有建立完整), 只得懵懵懂懂地被拖着学完了放大电路.  如今时隔一年半, 我在大三下又选上了电线实验, 倒也又给我一个机会接触并了解电子电路. 于是我便打算借着这个机会, 把之前没搞清"><meta property="og:type" content="blog"><meta property="og:title" content="从二极管到放大器-手把手教你理解放大电路"><meta property="og:url" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="李辰剑&amp;#x2F;IcyChlorine 2021-3-22 引言大二上时上了《现代电子线路及实验(上)》, 从一开始就被三极管打懵了, 自己的“电路观”被崩塌了. 但不幸的是, 打破之后, 新的电路观却并没有建立起来(至少没有建立完整), 只得懵懵懂懂地被拖着学完了放大电路.  如今时隔一年半, 我在大三下又选上了电线实验, 倒也又给我一个机会接触并了解电子电路. 于是我便打算借着这个机会, 把之前没搞清"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-e6fda110955006029d01951ea3ef952f_1440w.jpg"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-5ca6140e33e51247811867a6c96bbd6d_720w.jpg"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-163d73cbe2e54178bae9635a6069bf40_1440w.jpg"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324222921804.png"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210325102807302.png"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324232232144.png"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324232232144.png"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210325121735955.png"><meta property="og:image" content="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-image-20210325130451068.png"><meta property="article:published_time" content="2021-04-04T01:27:18.000Z"><meta property="article:modified_time" content="2021-04-04T16:09:06.770Z"><meta property="article:author" content="IcyChlorine"><meta property="article:tag" content="电子"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-e6fda110955006029d01951ea3ef952f_1440w.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/"},"headline":"Hexo","image":["http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-e6fda110955006029d01951ea3ef952f_1440w.jpg","http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-5ca6140e33e51247811867a6c96bbd6d_720w.jpg","http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-163d73cbe2e54178bae9635a6069bf40_1440w.jpg","http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324222921804.png","http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210325102807302.png","http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324232232144.png","http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324232232144.png","http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210325121735955.png","http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-image-20210325130451068.png"],"datePublished":"2021-04-04T01:27:18.000Z","dateModified":"2021-04-04T16:09:06.770Z","author":{"@type":"Person","name":"IcyChlorine"},"description":"李辰剑&#x2F;IcyChlorine 2021-3-22 引言大二上时上了《现代电子线路及实验(上)》, 从一开始就被三极管打懵了, 自己的“电路观”被崩塌了. 但不幸的是, 打破之后, 新的电路观却并没有建立起来(至少没有建立完整), 只得懵懵懂懂地被拖着学完了放大电路.  如今时隔一年半, 我在大三下又选上了电线实验, 倒也又给我一个机会接触并了解电子电路. 于是我便打算借着这个机会, 把之前没搞清"}</script><link rel="canonical" href="http://icychlorine.github.io/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.webp" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-04-04T01:27:18.000Z" title="2021-4-4 9:27:18">2021-04-04</time>发表</span><span class="level-item"><time dateTime="2021-04-04T16:09:06.770Z" title="2021-4-5 0:09:06">2021-04-05</time>更新</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">从二极管到放大器-手把手教你理解放大电路</h1><div class="content"><h4 id="李辰剑-IcyChlorine-2021-3-22"><a href="#李辰剑-IcyChlorine-2021-3-22" class="headerlink" title="李辰剑/IcyChlorine 2021-3-22"></a>李辰剑/IcyChlorine 2021-3-22</h4><hr>
+<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>大二上时上了《现代电子线路及实验(上)》, 从一开始就被三极管打懵了, 自己的“电路观”被崩塌了. 但不幸的是, 打破之后, 新的电路观却并没有建立起来(至少没有建立完整), 只得懵懵懂懂地被拖着学完了放大电路. </p>
+<p>如今时隔一年半, 我在大三下又选上了电线实验, 倒也又给我一个机会接触并了解电子电路. 于是我便打算借着这个机会, 把之前没搞清楚的一些模拟电路概念、以及难点重新梳理一下, 一来完善自己的知识结构, 二来也是为后来者铺路. 对于只学过中学电路的同学而言, 从“学前电路”(大学前电路)到大学的电子电路, 当中有着巨大的鸿沟, 学习曲线相当陡峭——因为有些概念和电路观念的转变老师不说, 教材也不写, 初来乍到很难理解. </p>
+<blockquote>
+<p>注意: 这篇文章与物理学院选修《现代电子线路及实验(上)》的同学是最契合的; 如果你是EE专业的, 这篇文章可能对于你来说太trivial、或者太简单了, 还请选择性阅读. XD</p>
+</blockquote>
+<h3 id="1-晶体管"><a href="#1-晶体管" class="headerlink" title="1 晶体管"></a>1 晶体管</h3><p>这一部分主要是二极管和三极管；二者的基础知识我就不赘述了, 各个教材上汗牛充栋, 网上也有许多资料. 这里贴两个知乎的教程：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/163707710">知乎：仅此一文, 看懂<em>二极管</em>的所有基础知识点</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/36475338/answer/81229987">知乎：三极管的原理书上都讲不清楚, 为什么能被制造出来?</a></p>
+<p><em>二极管的文章较为平庸, 是非常平常的讲解方式；三极管的文章却是非常优秀的, 提到了许多教科书都不会讲的观点. </em></p>
+<p>为了进行接下来我们的讨论, 我先放几张图：</p>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-e6fda110955006029d01951ea3ef952f_1440w.jpg">
+<br><font color="#888888" size="3">PN结</font>
+</div>
+
+<p>这是前述知乎教程中的二极管示意图. 看似简单, 仔细想想却有着许多问题：</p>
+<ul>
+<li>当中的耗尽区, 电子和空穴相互抵消=&gt;载流子耗尽形成短路. 但是同样在好进去, 有没有可能新的电子从离子实周围被电离出来, 形成电子和空穴分别向N区和P区移动, 形成电流？</li>
+<li>在P型半导体和N型半导体间形成了单向导通的PN结；但是我们知道, 二极管两侧相连的是金属导线(至少, 有可能是), 而金属导线的主要载流子是电子, 是一种”N型导体“. 那在金属导线与P区接触的地方, 会不会形成PN结呢？或者说, 为什么没有形成PN结呢？</li>
+</ul>
+<span id="more"></span>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-5ca6140e33e51247811867a6c96bbd6d_720w.jpg">
+<br><font color="#888888" size="3">NPN型三极管</font>
+</div>
+
+<p>上面这副图是教程中的NPN三极管示意图. 在大多数基础电子教程中, 三极管的原理是BE间加偏压(&gt;0)形成电流(从而电子运动方向E-&gt;B), 但是让C区N型半导体“兜”住大多数跑过来的电子. 这在任何一个学过中学电路——乃至电磁学电路——的人看来, 都有些奇怪, 甚至不可理喻. <em>向来</em>, 在认知中, 电子运动的模型是电路, 是由电压决定了电流的大小；电子被限制在电路当中, 电压在哪里, 电子就沿着哪条路走. <em>然而</em>, 在上图中, BE间加了偏压以生成电子流, 大多数电子却走了CE的通路；远离电压电阻和导纳, 却去直接操控电子的运动——这便是三极管的原理显得奇怪的地方了. 它在许多地方都与我们<strong>传统的电路观</strong>相抵触. </p>
+<hr>
+<p><strong>为了解决上述的这些问题</strong>, 或者说, 至少, 打消这些疑问以使我们能愉快地学习放大电路, 我们需要一些额外的知识, 还需要改变一下思维方式. </p>
+<p>历史上, 最早的二极管是所谓的<em>电子二极管</em>(1904), 基于阴极射线原理：</p>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/v2-163d73cbe2e54178bae9635a6069bf40_1440w.jpg">
+<br><font color="#888888" size="3">电子二极管</font>
+</div>
+
+<p>其原理非常简单粗暴, 灯丝受热, 发出电子；但是只有一端灯丝加热, 是的这一过程只能单向进行, 从而形成单向导通的“二极管”. 灯丝加热电子逸出的图像, 虽然不在传统的电路范畴内, 但物理图像过于简单粗暴, 因此也还算能让人接受. </p>
+<p>这种二极管体积大、加热灯丝功耗大, 还要预热…缺点非常多. 于是到了1947年, 美国人发明了如今常见的半导体二极管. </p>
+<p>而历史上, 三极管的加工工艺也是通过不断改进, 才达到了如今的水平. NPN三极管加工工艺中, 要求中心P区“尽可能薄而面积大”, 就是通过工艺水平逆天改命. 具体来说, 就是让P区<strong>充分狭长</strong>, 从而使得运动极慢的电子可以<strong>打破简单的欧姆定律和电路规律</strong>；通过让路转得“充分急“, 让电子“开车开到路外边去”, 实现电流重定向功能. 事实上, 如果简单地将两个PN结二极管并联, 是绝对达不到NPN型三极管的效果的. </p>
+<p>我做近物实验时, 有幸选了一项与二极管有关的实验, 需要测量二极管的各种参数；我当时想借着这个机会进一步了解一下二极管, 也顺便解决上述提到的两个问题, 于是便去下载了一本《半导体物理》电子书. 谁想, 厚厚的一本电子书从头推到尾, 从各种载流子一步一步建立理论、向前推演, 花了不知道多少时间、写了不知道多少公式、画了不知道多少图, 才得到一些简单有益的结论. 整本书建立在量子力学、固体物理和统计物理的基础上, 采用着这些前沿、精微而复杂的理论, 而远远不是各种电子教科书上采用的简单的二极管图像. 狄拉克梳、能带、载流子多子少子的连续变化……只有用这些概念, 才能真正了解<strong>PN结当中到底发生了什么</strong>. </p>
+<p><strong>原则 1</strong> 以上的林林总总告诉我们, 晶体管的特性并不平凡(trivial), 是因为它们<strong>不是一簇而就的</strong>, 而是许多代人慢慢改良原理、<strong>改良工艺</strong>的结果. 许多奇怪的特性看上去不太可能, 是因为它们<strong>真的不太可能</strong>. 它们今天能被放在这里供所有人使用, 本身就是人类科技进步发展的奇迹. 对此, 你：</p>
+<ul>
+<li>要么——<strong>基于前述认识接受它</strong></li>
+<li>要么——如果想要具体了解”不可能“是怎么变成“可能”的, 想要具体了解其中的动力学, 需要花费大量的时间和心力仔细研读《半导体物理学》, 在量子力学和固体物理的基础上把事情弄清楚. </li>
+</ul>
+<p>对此, 我建议的选择是：</p>
+<blockquote>
+<p>不管你信不信, 反正我是信了. </p>
+</blockquote>
+<p>这种信任不是盲目的相信, 不是“接触的多了”之后形成的麻木的相信；而是对前人改进了无数次的工艺的信任, 是对前人投入了心血才实现的事物的信任, 是基于科学的相信. </p>
+<p>这里再多嘴一句. 前述的NPN型三极管中, 虽然大部分电流都能被C极收集, 但仍有小部分电流会走过BE间的通路. 那工艺能不能进一步改进, 让BE间电流更小, 或者干脆没有, 实现完全理想的电操控开关呢？答案是肯定的——这就是场效应管, 在物院的电线理论中不教. (虽然教科书上有)</p>
+<h3 id="2-放大电路"><a href="#2-放大电路" class="headerlink" title="2 放大电路"></a>2 放大电路</h3><p>接下来, 我们就要从晶体管出发, 一步步探寻前方未知的道路, 最终形成人类智慧的结晶——放大电路. </p>
+<p>放大电路有什么用？我想, 这是每一个学模拟电路、放大电路的同学都会问的问题. 事实上, 我觉得现在回答这个问题为时过早；我们将会在合适的时候回顾这个问题. 事实上的事实上——我们现在连”放大”具体的含义都不清楚. </p>
+<p>让我们从<strong>三极管</strong>开始. </p>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324222921804.png">
+<br><font color="#888888" size="3">三极管的输出特性曲线</font>
+</div>
+
+<p>这是一张晶体三极管的输出特性曲线图. 我们前面说过, 三极管是一种让电子“走歪路”的器件, 在BE-PN结间加电压, 却让集电极C收走了绝大多数电子；简而言之, 就是让$u_{BE}$打工产生电流, 却在BC间的PN结截留、让C收走绝大多数电子. 正是这种BE打工拿小头、CE集电赚大头的工作方式, 让BE-CE间的放大成为可能. 根据这个模型, 我们可以得到一个粗略的公式：</p>
+<script type="math/tex; mode=display">
+i_{CE}=\beta i_{BE}\label{tri-coarse1:ampl}\tag{1}</script><p>其中$\beta$表示三极管的放大系数, 往往在$10^2$量级. 这个公式当然是非常粗略的, 与上图也符合得不好；后面还将在许多地方完善, 但这是描述我们模型的第一步. </p>
+<p>值得注意的是, 在这个模型中, 关键是电流间的控制和放大. 我们这里提前给出原则2：</p>
+<p><strong>原则 2(原型)</strong> 在放大电路中, 三极管是一种<strong>电流</strong>控制原件, 即, $i_{CE}$强烈的依赖于$i_{BE}$, 而非由电压决定. 这与传统的<strong><em>电压*</em></strong>决定电流、<em> **</em>电压<em>**</em>决定电路状况*的电路范式是不同的. </p>
+<p>为了更好地抢夺$i_{BE}$,CE间往往会加上正向电压$u_{CE}$以促使电子在电场的作用下涌向集电极C. 不难理解, 抢夺到的$i_{CE}$将会随着$u_{CE}$的增大而增大. 但事实上, 当$u_{CE}$增大到一定程度以后, 再增大, $i_{CE}$的增大就会变得非常缓慢, 仿佛遇到了一个天花板, 就好像<strong>饱和</strong>了似的. 但tricky的是, 这对应了上图中的<strong>放大区</strong>, 而<strong>饱和区</strong>却对应了曲线陡峭上升的阶段. 这是因为, 在放大区, C极对$u_{CE}$的剥削达到了极限, 也只有在这里才能稳定获得前述$i_{CE}=\beta i_{BE}$的关系, 实现电流放大功能. 从饱和区来到放大区的临界电压成为饱和电压, 典型的数据是$u_{CE}^S=0.3V$,其中上标$S$代表饱和(Saturated).而至于饱和区的功能, 则在放大电路中一般不用, 在数字电路中较为常用. </p>
+<p>我们发现, 实现$\eqref{tri-coarse1:ampl}$式所描述的剥削放大并不是无条件的, 而是需要一定的$u_{CE}$条件. 这就好像资本家想要剥削工人, 完全不给工资肯定是不行的, 至少要给一些基本的足够生存的工资, 工人们才愿意为之卖命. 这一$u_{CE}$的条件, 是一个<strong>工作点</strong>, <strong>描述了三极管实现某一功能的额外条件</strong>. </p>
+<p>类似$u_{CE}$, 工作在放大区对$u_{BE}$也有要求. 非常简单, 要有足够的电压保证BE间的PN结能够打开——否则整个三极管都是堵住的. 这个开门电压与二极管是一致的, 一般是$u_{BE}^Q=0.7V$,其中$Q$表示工作点. 如果说前面$u_{BE}$的工作点条件是<em>剥削条件</em>的话, 那么这里的这个工作点条件, 我会称之为<em>劳动力条件</em>, 代表三极管工作的基础电压条件. </p>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210325102807302.png">
+<br><font color="#888888" size="3">接地的NPN型三极管</font>
+</div>
+
+<p>到了这里, 我们已经可以设计出以三极管为核心的放大电路原型：BE间(左下两极)提供微小电流源$i_{BE}=i_{in}$, 并提供足够的开门电压$u_{BE}$,CE间提供足够的抢电子电压, 从而, CE间的电流就是被放大的电流$i_{CE}=\beta i_{in}=i_{ampl}=i_{out}$.</p>
+<p>但问题在于, 一般的原件要么提供电压决定电流, 要么提供电流决定电压, 哪有同时提供电压和电流的？如何同时在BE间提供/控制<strong>工作点电压</strong>和<strong>待放大的微小电流源</strong>？这是我们遇到的第一个<strong>技术难点</strong>, 为了解决这个问题, 我们需要稍微研究一下BE间的伏安特性. </p>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324232232144.png">
+<br><font color="#888888" size="3">三极管的输入特性曲线</font>
+</div>
+
+<p>我们首先简化一下记号. 由于前述的BE间电流$i_{BE}$最终从B端流出, 可以简记为$i_B$; 而同理$i_{CE}$可以简记为$i_C$. 类似地, 我们还可以定义从发射极流过的电流$i_E$——根据电流守恒定律, $i_E=i_{BE}+i_{CE}=i_B+i_C$.</p>
+<p>上面是三极管的伏安特性曲线图, 也叫<strong>输入特性</strong>曲线图, 描述了BE间的伏安特性. 之所以叫输入特性, 是因为BE二极往往是需要放大的微小电流的输入端. 可以看到, 由于BE间是二极管结构, 伏安曲线与二极管类似, 开门后呈指数上升的态势. 同时, BE间的伏安特性并不是与集电极完全无关的, 集电极的剥削也会对输入特性有影响. 当剥削电压增大, 开门电压便会变高, 开门变得更困难, 这是不难理解的；但$u_{CE}$对输入特性的影响总体有限, 尤其是在饱和(进入放大区)之后影响更小；因此, 输入特性和输出特性是可以<strong>大致脱耦</strong>的, 即, 可近似认为放大区中输入特性曲线与$u_{CE}$无关. </p>
+<p>有了输入特性曲线, 我们就可以确定工作点电压和输入小电流间的关系了. 这里产生了两个问题：</p>
+<ul>
+<li>工作点电压和输入电流之间是有一一对应的关系的；当电压确定, 电流就无法变化；当电流变化, 电压就会不确定. 如何同时满足二者？</li>
+<li>曲线是非线性的, 不利于控制. </li>
+</ul>
+<p>到了这里, 我们仿佛走入了<strong>死胡同</strong>. </p>
+<hr>
+<p>但天才的工程师们还是想出了办法：<strong>直流偏置, 微变放大. </strong></p>
+<p>为了说明个中的思想, 我们先借鉴一下另一个概念. 在生物学中, 人体的内环境被总结为四个字：相对稳定, 动态平衡；具体来说, 人体的体温总体稳定在37度上下, 便于各个生物组件发挥正常作用, 但这并不妨碍人体体温会在时间跨度上有着微小变化. 例如, 睡眠时体温相对较低, 剧烈运动后体温较高而使人感到非常热. <strong>动态的小变化并不妨碍整体处在工作点附近, 相反, 还帮助适应环境. </strong></p>
+<p>我们来看看这一思想是怎么被运用到三极管放大电路中的. </p>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210324232232144.png">
+<br><font color="#888888" size="3">三极管的输入特性曲线</font>
+</div>
+
+<p>当$u_{BE}$大体在$0.7V+$时, 在其上叠加一个小电压信号$\delta u_{BE}(t)\sim mV$,那将会导致$i_{B}$的微小变化$\delta i_B(t)$.</p>
+<p>我们可以写出：</p>
+<script type="math/tex; mode=display">
+\delta i_B=\left.\frac{\mathrm di_B(u_{BE})}{\mathrm d u_{BE}}\right|_{u_{BE}=u_{BE}^Q}\cdot\delta u_{BE}\label{delta_ib}\tag{2}</script><p>进一步地, 三极管对电流的放大作用可以表示为：</p>
+<script type="math/tex; mode=display">
+i_B=i_B^Q+\delta i_B,i_C=i_C^Q+\delta i_C\\
+i_C=\beta i_B\\
+\Rightarrow\delta i_C=\beta\delta i_B\label{delta_ib_ampl}\tag{3}</script><p>我们稍稍分析一下这两个公式：</p>
+<ul>
+<li><p>$\eqref{delta_ib}$告诉我们, 我们需要操控电压$u_{BE}$来控制电流$i_B$;事实上, 这反而更方便, 因为需要被放大的往往是电压信号而非电流信号</p>
+</li>
+<li><p>$\eqref{delta_ib}$还意味着, 当三极管工作在<strong>工作点</strong>$u_{BE}^Q$附近, 导数项近似为不变, 微变电压$\delta u_{BE}$和微变电流$\delta i_B$之间又恢复了线性关系, 这会给我们后续工作带来许多便利. 这也启发我们, 可以把这个不变的导数项等效为一个“微变电阻”$r_{BE}$, 于是我们得到：</p>
+<script type="math/tex; mode=display">
+r_{BE}:=\left(\left.\frac{\mathrm di_B(u_{BE})}{\mathrm d u_{BE}}\right|_{u_{BE}=u_{BE}^Q}\right)^{-1}\\
+\Rightarrow\delta i_B=\frac{\delta u_{BE}}{r_{BE}}\tag{4}</script></li>
+<li><p>事实上, 工程中将直流量记为大写, 交变、微变量记为小写. 我们需要将前面的公式稍作改变以符合惯例, 只需要做替换：</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+u_{BE}^Q\rightarrow U_{BE}^Q,\quad i_B^Q\rightarrow I_B^Q\\
+\delta u_{BE}\rightarrow u_{BE},\quad \delta i_B\rightarrow i_B\tag{5}</script><p>即可. 其余变量类似. </p>
+<p>我们总结一下, 可以得出原则3：</p>
+<p><strong>原则 3</strong> 三极管中的直流偏置和被放大的微变信号是分离的. 直流偏置提供工作点, 微变信号才是被放大的那个. 二者可以通过电压叠加“耦合”, 放大后再通过通交流的电容将交变信号提取出来. 一言以蔽之, <strong>直流偏置, 交变放大</strong>. </p>
+<hr>
+<p>到这里, 我们已经从原理上完成了三极管放大电路的构思, 剩下的问题就是如何将构思变化为实际可用的电路. </p>
+<p>我们有两个问题：</p>
+<ul>
+<li>如何提供工作点？</li>
+<li>如何在工作点$U_{BE}^Q$上叠加$u_{BE}(t)$？</li>
+<li>目前, 就被放大的微变信号而言, 仍然是电压输入-&gt;电流输出. 能否转化为电压输入-&gt;电压输出？</li>
+</ul>
+<p><strong>第一个问题</strong>, 最简单的解决方案莫过于直接在BE间和CE间分别连两个$0.7V$和$0.5V$的电源. 但是这比较麻烦, 我们希望最好是可以通过一个$5V$或者$12V$电源, 通过分压等方法解决问题. </p>
+<p><strong>第二个问题</strong>也挺简单, 根据电压叠加原理, 直接在$U_{BE}^Q$上串联我们的微小信号源$u_{BE}(t)$即可. 但考虑到第一个问题的后一个要求…可能会使问题复杂化. </p>
+<p><strong>第三个问题</strong>, 有一个巧妙的解决方案, 所幸这里也写得下——在$i_C$流经的地方串联一个电阻$R_C$, 根据$u_R=i_CR_C$即可获得一个与$i_C$正比的电压, 再将这个电压引出来作为输出电压, 就得到了电压输出. 这个电压是否被放大了, 则取决于$R_C$等参数——希望不要得到一个更小的电压, 否则这个解决方案就破产了. <em>一个进一步的问题</em>是, 电阻与CE串联时, 电阻会有分压, 随着电流变化分压也会变化, 这会不会影响到三极管？我们会不会需要解一个复杂的非线性方程？幸运的是, 由于微变电压很小, 三极管在放大区的输出电流又与$U_{CE}$关系很小(曲线很平), 因此可以<strong>近似认为</strong>三极管的输出电流不随电阻的分压变化而变化. </p>
+<p>写了这么多文字分析, 是时候上电路图了：</p>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-20210325121735955.png">
+<br><font color="#888888" size="3">提供三极管工作点的直流偏置电路分量</font>
+</div>
+
+<p>这只是完整电路图的一部分, 负责提供工作点条件, 亦即放大电路的“直流分量”. 下面接地是为了方便提供一个参考点, $V_{CC}$是电源, 往往是$5V$或者$12V$.$R_C$与CE端串联, 如前所述；而$R_B$则是为了通过分压提供$U_{BE}^Q$.显然, 只有通过仔细选择电阻大小才能满足工作点条件. </p>
+<p>许多同学到了这里可能就犯了难：这既非串联, 亦非并联；而且三极管还是非线性原件, 如何分析？这里我们给出原则4：</p>
+<p><strong>原则 4a</strong> 不是吧阿sir, 到了大学还只会用欧姆定律求解电路？面对复杂电路, 往往无法直接整个求解；思路要开阔一些, <strong>要善用电压压降条件列方程</strong>. </p>
+<p>为了具体地分析这个直流分量(“分量”一词来自图论中的“强连通分量”, 本意是一个网络的子网络)电路, 我们先假定一些数据：$V_{CC}=5V,U_{CE}^S=0.5V,U_{BE}^Q=0.7V$.</p>
+<p>有了这些还不够. 我们还需要引入三极管的两个非常奇异的特性才能方便地求解这个电路：</p>
+<ul>
+<li>$U_{CE}&gt;U_{CE}^Q$时, $I_C$几乎不变. 如果作近似, 那就是近似不变. </li>
+<li>BE间的伏安特性类似二极管；当$U_{BE}$增加至$U_{BE}^Q$以上时, 电流迅速增加；这个区域倒过来看, 就是电压随电流变化很小. 也就是说, 在开门后区域, BE端有稳压的功能, 可以在相当大的电流区间内<strong>强行把压降维持在$0.7V$</strong>左右. </li>
+</ul>
+<p>可以看到, 这是三极管同电阻不同的地方. 进一步地, 这同小电珠等非线性伏安元件也不一样. </p>
+<p>为了能愉快地分析这个电路, 我们还有最后一条原则要说：</p>
+<p><strong>原则 4b</strong> 先假设三极管工作在工作点, 然后再去解为了满足这个条件需要的电路参数；不要试图根据电源电压和电阻等参量去解三极管——由于三极管的非线性是非常不实际的. 事实上, 即使解出来了不在工作点的解, 也没有什么用, 因为并不能用来放大. 工程师们对于解决这一问题的办法可以称为<strong>鸵鸟算法</strong>——把头埋低, 不去管那些非工作点解. </p>
+<p>做了这么多铺垫, 我们终于可以正式开始解工作点了. 根据压降条件, 我们列出方程组：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{aligned}
+    V_{CC}&=I_BR_B+U_{BE}\\
+    V_{CC}&=I_CR_C+U_{CE}\\
+    I_C&=\beta I_B
+\end{aligned}\right.\tag{6}</script><p>式中, 由于三极管的第二个奇异特性, $U_{BE}$总是在$U_{BE}^Q=0.7V$左右, 因此应带入$0.7V$;而$U_{CE}$只需大于$U_{CE}^S$即可, 可以取相当大的范围, 因此数学上反而会由$V_{CC}$和$I_C$确定：</p>
+<script type="math/tex; mode=display">
+U_{CE}=V_{CC}-I_CR_C=V_{CC}-\beta I_BR_C\tag{7}</script><p>在这里, 有意思的事情在于, $U_{CE}$并没有被<strong>提供</strong>(通过电源或合适的电路设计设置合适的工作点), 而是被$I_B$所决定. 这种奇怪的感觉背后, 反映的是<strong>不同原件</strong>对于电压电流的<strong>不同弹性</strong>(Elasticity,这里借鉴了经济学中的概念). 电阻的弹性关系总是<strong>线性的</strong>, 要让多少电流通过它, 就得提供成比例的电压；但CE端间的弹性, 反映在输出特性曲线上是非常<strong>佛系的</strong>, 只要电压不要太小(即要求$U_{CE}&gt;U_{CE}^S$), 通过这点电流, 多少电压都可以. 当$I_B$增大、需要输出的$I_C$也成比例增大时, 电阻$R_C$非常强硬, 多抢走了许多电压；而三极管CE端则非常佛系, 就如同一个老实人一般, 于是分压就被抢走. </p>
+<p>这是对$R_C$-CE这一串联线路上分压的“<strong>动力学分析</strong>”, 亦即大家中学所熟悉的<em>电压决定电流</em>的模式. 我进行这部分分析的原因是, 想向大家展示三极管也可以进行“动力学分析”；从电阻电路的分析方式出发分析模拟电路, 构建一个电阻电路-&gt;模拟电路的理解桥梁, 让大家不至于完全另起炉灶构建电路观, 认识到二者是可以统一的. 但如果对每个三极管电路中的地方都这样分析, 未免太过复杂. 因此, 我建议大家<strong>接受方程解, 莫问为什么</strong>. </p>
+<hr>
+<p>进一步, 我们可以将交流信号源叠加上, 得到一个虽简单, 却完整的放大电路：</p>
+<div align="center">
+<img src="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/image-image-20210325130451068.png">
+<br><font color="#888888" size="3">简单但完整的放大电路</font>
+</div>
+
+<p>这一电路中, 采取了两电源供电的形式, 因此方程更简单：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{aligned}
+I_B^Q&=\frac{V_{BB}-U_{BE}^Q}{R_B}\\
+I_C^{(Q)}&=\beta I_B^{(Q)}\\
+U_{CE}^Q&=V_{CC}-I_C^QR_C
+\end{aligned}\right.\tag{8}</script><p>这组方程稍微变换了一下, 写成了更利于分析的形式. </p>
+<p>激动人心的时刻到了——接下来考虑微变信号：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+u_i=u_i(t)\Rightarrow i_B(t)&=\frac{u_i(t)}{R_B+r_{BE}}\tag{9}\\
+\Rightarrow i_C(t)&=\beta i_B(t)=\frac{\beta u_i}{R_B+r_{BE}}\tag{10}\\
+\Rightarrow \quad U_{C}&=V_{CC}-I_CR_C\nonumber\\
+&=V_{CC}-(I_C^Q+i_C)R_C\tag{11}\\
+&=V_{CC}-I_C^QR_C-\frac{\beta R_C}{R_B+r_{BE}}u_i\nonumber
+\end{align}</script><p>这里还差一步. 我们需要将微变的小信号取出, 还需要在上图中$u_o$的“+”和三极管的C极之间接一个大电容；这样一来就可以将直流电压去除, 而取出交变电压：</p>
+<script type="math/tex; mode=display">
+u_o(t)=-\frac{\beta R_C}{R_B+r_{BE}}u_i(t)\tag{12}</script><p>考虑三极管的$\beta\sim100$, 只要适当地选区电阻就可以获得$u_o&gt;&gt;u_i$.我们可以很方便地读出放大系数(没错, 它确实小于零, 这意味着反向)：</p>
+<script type="math/tex; mode=display">
+\dot{A_u}=-\frac{\beta R_C}{R_B+r_{BE}}\tag{13}</script><h4 id="OHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH！"><a href="#OHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH！" class="headerlink" title="OHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH！"></a>OHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH！</h4><p>到这里, 我们一步一步, 从三极管、到放大工作点、直流交流分离…一步步分析下来, 终于设计出了一个完整的放大电路. 这其中克服了许多困难, 但这都没有阻拦住我们(事实上是人类历史上电子工程师)的脚步. </p>
+<p>这里, 还有几个地方要remark：</p>
+<ul>
+<li><p>上文中, 我常常把“微变”和“交变”混为一谈. 这从概念上来讲当然是不对的微小的电压不一定就是交流电. 但实际上在放大电路中, 往往确实既是“微变”又是“交变”. 在本文中, 在最后加入电容之前, 放大电路只需要“微变”条件即可；但在加入电容后, 为了利用电容“通交流”的特性, 信号就必须是交变的了——不一定要是正弦交流电, 但至少相比电容要变化得足够快, 否则电容无法正常工作. </p>
+</li>
+<li><p>上面的放大电路, 由于$u_i$和$u_o$的“-”端都与发射极相连(一般来说$V_{BB}$会翻上去和$V_{CC}$合一, 因此$u_i,u_o$确实会共发射极), 因此又叫共射放大电路. 除了共射放大电路之外, 还有共基、共集放大电路, 这里都没有涉及. </p>
+</li>
+</ul>
+<h3 id="频率特性"><a href="#频率特性" class="headerlink" title="频率特性"></a>频率特性</h3><p>由于本文一开始是为了电线实验而写,所以我也想写一下实验课中做的”放大器频率特性实验”的理论.但已经写了7k+字,太累了,这部分就以后再说吧.</p>
+<p><strong>TODO</strong></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>从二极管到放大器-手把手教你理解放大电路</p><p><a href="http://icychlorine.github.io/2021/04/04/从二极管到放大器-手把手教你理解放大电路/">http://icychlorine.github.io/2021/04/04/从二极管到放大器-手把手教你理解放大电路/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>IcyChlorine</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-04-04</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-04-05</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a><a class="icon" rel="noopener" target="_blank" title="ShareAlike" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons-sa"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%94%B5%E5%AD%90/">电子</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5fb48effefe98e0012650837&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/04/03/Fourier%E6%96%B9%E6%B3%95%E4%B8%93%E6%A0%8F-%E4%BA%8C-%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%88%B0%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"><span class="level-item">Fourier方法专栏(二)-从傅里叶级数到傅里叶变换</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.webp" alt="李辰剑"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">李辰剑</p><p class="is-size-6 is-block">IcyChlorine</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing/Shanghai, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/IcyChlorine" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/IcyChlorine"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Bilibili" href="https://space.bilibili.com/35731772"><i class="fas fa-cannabis"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/li-chen-jian-29"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Netease-Cloud-Music" href="https://music.163.com/#/user/home?id=306748708"><i class="fab fa-itunes-note"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://space.bilibili.com/35731772" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bilibili</span></span><span class="level-right"><span class="level-item tag">space.bilibili.com</span></span></a></li><li><a class="level is-mobile" href="https://spiritedawaycn.github.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">SpiritedAwayCN&#039;s blog</span></span><span class="level-right"><span class="level-item tag">spiritedawaycn.github.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-04T01:27:18.000Z">2021-04-04</time></p><p class="title"><a href="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/">从二极管到放大器-手把手教你理解放大电路</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-03T12:18:28.000Z">2021-04-03</time></p><p class="title"><a href="/2021/04/03/Fourier%E6%96%B9%E6%B3%95%E4%B8%93%E6%A0%8F-%E4%BA%8C-%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%88%B0%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">Fourier方法专栏(二)-从傅里叶级数到傅里叶变换</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-03T01:27:18.000Z">2021-04-03</time></p><p class="title"><a href="/2021/04/03/hello-world/">Hello World</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%B5%E5%AD%90/"><span class="tag">电子</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.webp" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2021 IcyChlorine</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
