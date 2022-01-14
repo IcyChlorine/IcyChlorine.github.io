@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Notes: Probabilistic Cloning and Identification of Linearly Inpendent Quantum States - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="论文作者：段路明老师，郭光灿院士Notes by 李辰剑 2021-8-18  Overview一般的幺正操作不能克隆未知的量子态，除非量子态只能从一组正交的态中挑选 但这不代表加上测量之后不行！ 作为代价的是： 1.不能可靠地克隆，而受限于成功概率$\gamma_i$; 论文作者还给出了$\gamma_i$的理论上界 2.仍然要求量子态从一个已知的态的集合$\{|\Psi_1\rangle,|"><meta property="og:type" content="blog"><meta property="og:title" content="Notes: Probabilistic Cloning and Identification of Linearly Inpendent Quantum States"><meta property="og:url" content="http://icychlorine.github.io/2022/01/14/Notes-Probabilistic-Cloning-and-Identification-of-Linearly-Inpendent-Quantum-States/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="论文作者：段路明老师，郭光灿院士Notes by 李辰剑 2021-8-18  Overview一般的幺正操作不能克隆未知的量子态，除非量子态只能从一组正交的态中挑选 但这不代表加上测量之后不行！ 作为代价的是： 1.不能可靠地克隆，而受限于成功概率$\gamma_i$; 论文作者还给出了$\gamma_i$的理论上界 2.仍然要求量子态从一个已知的态的集合$\{|\Psi_1\rangle,|"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://icychlorine.github.io/img/og_image.png"><meta property="article:published_time" content="2022-01-14T06:42:53.000Z"><meta property="article:modified_time" content="2022-01-14T11:57:40.046Z"><meta property="article:author" content="IcyChlorine"><meta property="article:tag" content="量子力学"><meta property="article:tag" content="论文笔记"><meta property="article:tag" content="量子计算"><meta property="article:tag" content="量子态复制"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://icychlorine.github.io/2022/01/14/Notes-Probabilistic-Cloning-and-Identification-of-Linearly-Inpendent-Quantum-States/"},"headline":"Hexo","image":["http://icychlorine.github.io/img/og_image.png"],"datePublished":"2022-01-14T06:42:53.000Z","dateModified":"2022-01-14T11:57:40.046Z","author":{"@type":"Person","name":"IcyChlorine"},"description":"论文作者：段路明老师，郭光灿院士Notes by 李辰剑 2021-8-18  Overview一般的幺正操作不能克隆未知的量子态，除非量子态只能从一组正交的态中挑选 但这不代表加上测量之后不行！ 作为代价的是： 1.不能可靠地克隆，而受限于成功概率$\\gamma_i$; 论文作者还给出了$\\gamma_i$的理论上界 2.仍然要求量子态从一个已知的态的集合$\\{|\\Psi_1\\rangle,|"}</script><link rel="canonical" href="http://icychlorine.github.io/2022/01/14/Notes-Probabilistic-Cloning-and-Identification-of-Linearly-Inpendent-Quantum-States/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.webp" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-01-14T06:42:53.000Z" title="2022-1-14 14:42:53">2022-01-14</time>发表</span><span class="level-item"><time dateTime="2022-01-14T11:57:40.046Z" title="2022-1-14 19:57:40">2022-01-14</time>更新</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Notes: Probabilistic Cloning and Identification of Linearly Inpendent Quantum States</h1><div class="content"><hr>
+<p>论文作者：段路明老师，郭光灿院士<br>Notes by 李辰剑 2021-8-18</p>
+<hr>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>一般的幺正操作不能克隆未知的量子态，除非量子态只能从一组正交的态中挑选</p>
+<p>但这不代表加上测量之后不行！</p>
+<p>作为代价的是：</p>
+<p>1.不能可靠地克隆，而受限于成功概率$\gamma_i$; 论文作者还给出了$\gamma_i$的理论上界</p>
+<p>2.仍然要求量子态从一个已知的态的集合$\{|\Psi_1\rangle,|\Psi_2\rangle,\cdots,|\Psi_n\rangle\}$中选取，并且要求这些态线性无关；不过这已经从 $\{相互正交的态\}$扩展到了$\{线性无关的态\}$</p>
+<h3 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h3><ul>
+<li>No-cloning Theorem</li>
+<li>克隆一份量子态：将测量作为投影算子使用</li>
+<li>成功克隆的概率$\gamma_i$的上界</li>
+<li>克隆多份量子态</li>
+<li>从量子态克隆到量子态分辨</li>
+</ul>
+<span id="more"></span>
+<hr>
+<h3 id="Recall-Basic-No-cloning-Theorem"><a href="#Recall-Basic-No-cloning-Theorem" class="headerlink" title="Recall: Basic No-cloning Theorem"></a>Recall: Basic No-cloning Theorem</h3><p><strong>No-cloning Theorem: 不能可靠地克隆一个未知的量子态</strong></p>
+<p>准确来说，不存在幺正操作$U$，使得$|\Psi_i\rangle|\Sigma\rangle\xrightarrow{U}|\Psi_i\rangle|\Psi_i\rangle,\ \forall|{\Psi_i}\rangle\in\mathcal{H}$</p>
+<h3 id="将测量作为投影算子使用"><a href="#将测量作为投影算子使用" class="headerlink" title="将测量作为投影算子使用"></a>将测量作为投影算子使用</h3><p>考虑幺正算符：</p>
+<script type="math/tex; mode=display">
+\newcommand\a{\alpha}
+\newcommand\b{\beta}
+\newcommand\g{\gamma}
+\newcommand\bra[1]{\left\langle#1\right|}
+\newcommand\ket[1]{\left|#1\right\rangle}
+\newcommand\qinner[2]{\left\langle#1\right.\left|#2\right\rangle}
+\newcommand\qouter[2]{\left|#1\right\rangle\left\langle#2\right|}
+\newcommand\state[1]{\left|#1\right\rangle}
+\newcommand\diag{\mathrm{diag}}
+
+U\big[\ket{\Psi_i}\ket{\Sigma}\ket{P_0}\big]=\sqrt{\g_i}\ket{\Psi_i}\ket{\Psi_i}\ket{P_0}+\sum_jc_{ij}\ket{\Phi_{AB}^{(j)}}\ket{P_j}\label{prob_clone_proc_EASY}\tag{1}</script><p>其中$\g_i\in(0,1]\subset\mathbb{R}$,$\ket{\Phi_{AB}^{(j)}}$表示系统AB的不论什么奇奇怪怪的态——我们无所谓。</p>
+<p>如果存在这样的算符$U$，在作用到系统AB上之后再对P进行测量，</p>
+<ul>
+<li>测量得到$\ket{P_0}$说明量子态克隆成功，保留AB</li>
+<li>测量得到$\ket{P_{j\neq i}}$说明克隆失败，得到了一坨不想要的态，丢弃</li>
+</ul>
+<p>那么我们就有$\gamma_i$的概率能够成功克隆$\ket{\Psi_i}$.</p>
+<p><em>问题：理论上这样的幺正算符和大于零的$\g_i$是否存在？</em></p>
+<p>先考虑一个引理.</p>
+<p><strong>引理2</strong> 形如$X=[\qinner{\psi_i}{\psi_j}]$的矩阵是正定的，当且仅当向量集$\{\ket{\psi_i}\}$是线性无关的；否则，就只是半正定矩阵.</p>
+<p>引理的证明 考虑任意向量$\alpha=[\alpha_1,\alpha_2,\cdots,\alpha_n]^T$，则</p>
+<script type="math/tex; mode=display">
+\alpha^\dagger X\alpha=\sum_{ij}\alpha_i^*\qinner{\psi_i}{\psi_j}a_j\\
+=\qinner{\Psi}{\Psi}=||\ket{\Psi}||^2\ge0\notag</script><p>其中$\ket{\Psi}=\sum_i\alpha_i\ket{\psi_i}.$</p>
+<p>从而，如果$\ket{\psi_i}$线性相关，$\ket{\Psi}$可以是零向量，上式可以取到等号——矩阵$X$就只能是半正定矩阵；</p>
+<p>反之，如果$\ket{\psi_i}$线性无关，上式就永远取不到等号，$X$就是彻底的正定矩阵.</p>
+<p><strong>前面问题的证明</strong>：（1）考虑$\langle\eqref{prob_clone_proc_EASY}_i|\eqref{prob_clone_proc_EASY}_j\rangle$拼起来构成的矩}阵方程</p>
+<script type="math/tex; mode=display">
+X^{(1)}=\sqrt\Gamma X^{(2)}\sqrt\Gamma^\dagger+CC^\dagger\tag{2}</script><p>其中$X^{(1)}=[\qinner{\Psi_i}{\Psi_j}]$为正定矩阵，$\sqrt\Gamma=\diag\{\sqrt{\g_1},\sqrt{\g_2},\cdots,\sqrt{\g_n}\}=\sqrt\Gamma^\dagger$,$X^{(2)}=\left[\qinner{\Psi_i}{\Psi_j}^2\right]$</p>
+<p>（2）出于连续性的考虑，只要$X^{(1)}$是正定的，那么总存在充分小的$\{\g_i\}$使得$X^{(1)}-\sqrt\Gamma X^{(2)}\sqrt\Gamma^\dagger$也是正定的</p>
+<p>（3）于是等式可以写成$[一个厄密正定矩阵]=CC^\dagger$，而这正是Cholesky分解，因此$C$总是有解；<strong>从而，这个矩阵方程对于$\Gamma$是有解的。</strong></p>
+<p>关键：如果$\{\Psi_i\}$线性无关，那$X^{(1)}$刚好是正定矩阵；如果是线性相关的话，$X^{(1)}$就只能是半正定矩阵，那么$X^{(1)}-\sqrt\Gamma X^{(2)}\sqrt\Gamma^\dagger$就有可能不是半正定矩阵了。</p>
+<p>（4）但是这里只说明了存在$\Gamma$，我们需要的幺正操作$U$是否存在呢？作者给出了这样的证明：</p>
+<p><strong>引理1</strong> 如果有两套$\{\ket{\phi_i}\}$和$\{\ket{\widetilde\phi_i}\}$满足</p>
+<script type="math/tex; mode=display">
+\left\langle\phi_{i} \mid \phi_{j}\right\rangle=\left\langle\widetilde{\phi}_{i} \mid \widetilde{\phi}_{j}\right\rangle, \quad(i=1,2, \cdots, n ; j=1,2, \cdots, n)\notag</script><p>那么就存在幺正算符$U$使得$U\big[\ket{\phi_i}\big]=\ket{\widetilde{\phi}_i}$.</p>
+<p>引理1的证明：</p>
+<script type="math/tex; mode=display">
+\newcommand\tphi{\widetilde{\phi}}
+\text{let}\; U:=\sum_i\qouter{\tphi_i}{\phi_i}.\\
+\Rightarrow UU^\dagger=\left(\sum_i\qouter{\tphi_i}{\phi_i}\right)\left(\sum_j\qouter{\tphi_j}{\phi_j}\right)^\dagger\\
+=\sum_{ij}\qouter{\tphi_i}{\phi_i}\qouter{\phi_i}{\tphi_i}\\
+=\sum_{ij}\qouter{\tphi_i}{\tphi_i}\qouter{\tphi_i}{\tphi_i}\\
+=\left(\sum_i\qouter{\tphi_i}{\tphi_i}\right)^2=I^2=I.\square\notag</script><p>根据引理，只要矩阵方程被满足了，矩阵方程左右的态构成了这两组态就满足了引理的条件，从而存在符合我们要求的幺正操作。</p>
+<blockquote>
+<p>展望：这里的论述可以抽象为：$\{\ket{\Psi_i}\}$线性无关$\Rightarrow$可以概率克隆。即，$\{\ket{\Psi_i}\}$线性无关是可以概率克隆的必要条件。论文中认为是充要条件；那充分性是怎么证明的呢？</p>
+</blockquote>
+<h3 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h3><p>事实上，$\eqref{prob_clone_proc_EASY}$可generalize为：</p>
+<script type="math/tex; mode=display">
+U\big[\ket{\Psi_i}\ket{\Sigma}\ket{P_0}\big]=\sqrt{\g_i}\ket{\Psi_i}\ket{\Psi_i}\ket{P^{(i)}}+\sqrt{1-\g_i}\ket{\Phi_{ABP}^{(i)}}\tag{3}</script><p>其中，为了测量投影之后能得到我们想要的态，要求$\ket{\Phi_{ABP}^{(i)}}$与$\ket{\Psi_i}\ket{\Psi_i}\ket{P^{(i)}}$正交；或，写成投影算子的形式：</p>
+<script type="math/tex; mode=display">
+\sum_i\qouter{P^{(i)}}{P^{(i)}}\ket{\Phi_{ABP}^{(j)}}=0,\quad\forall j\notag</script><blockquote>
+<p> Remark 注意，这里只要求$\ket{\Phi_{ABP}^{(i)}}$与$\ket{P^{(j)}}$间正交，而不需要$\{\ket{P^{(i)}}\}$内部相互正交。这是因为我们只要能分辨”克隆成功”和”克隆失败“这两种情况就够了。见最后的”identification“部分。</p>
+</blockquote>
+<p>而前述的矩阵方程相应地变为：</p>
+<script type="math/tex; mode=display">
+X^{(1)}=\sqrt\Gamma X_P^{(2)}\sqrt\Gamma^\dagger+\sqrt{I-\Gamma}Y\sqrt{I-\Gamma}^\dagger\tag{4}</script><p>其中$Y=\left[\qinner{\Psi_{ABP}^{(i)}}{\Psi_{ABP}^{(j)}}\right],\ X_P^{(2)}=\left[\qinner{\Psi_i}{\Psi_j}^2\qinner{P^{(i)}}{P^{(j)}}\right]$</p>
+<p>同样可以说明，可以概率克隆，亦即存在$\Gamma$的条件是，矩阵$X^{(1)}-\sqrt\Gamma X_P^{(2)}\sqrt\Gamma^\dagger$半正定。</p>
+<h3 id="gamma-i-的上界"><a href="#gamma-i-的上界" class="headerlink" title="$\gamma_i$的上界"></a>$\gamma_i$的上界</h3><p>值得注意的是，条件：</p>
+<script type="math/tex; mode=display">
+X^{(1)}-\sqrt\Gamma X_P^{(2)}\sqrt\Gamma^\dagger是半正定矩阵\label{eq:g_sup_constraint}\tag{5}</script><p>给出了对$\Gamma$的限制，解这个不等式组就能获得一个$\gamma_i$的上界——这个上界往往是对$\qinner{P^{(i)}}{P^{(j)}}$依赖的。再对所有$\ket{P^{(i)}}$求上界，就能获得一个不依赖P的上界。</p>
+<p>例如，对$n=2$的情形，作者给出了公式：</p>
+<script type="math/tex; mode=display">
+\frac{\gamma_{1}+\gamma_{2}}{2} \leq \max _{\left|P^{(i)}\right\rangle} \frac{1-\left|\qinner{\Psi_i}{\Psi_j}\right|}{1-\left|\qinner{\Psi_i}{\Psi_j}\right|^2\left|\left\langle P^{(1)} \mid P^{(2)}\right\rangle\right|}=\frac{1}{1+\left|\qinner{\Psi_i}{\Psi_j}\right|}\label{eq:n2_g_sup}\tag{6}</script><p>其中，当且仅当$\g_1=\g_2$且$\qinner{P^{(1)}}{P^{(2)}}=1$时取到等号。</p>
+<p><strong>引理3</strong> 二阶厄密矩阵$\begin{pmatrix}<br>a_{11} &amp; a_{12} \\<br>a_{12}^* &amp; a_{22} \\<br>\end{pmatrix}$是半正（负）定的，当且仅当$a_{11,22}&gt;0(&lt;0)$且$|a_{12}|^2-a_{11}a_{22}\leq0$.</p>
+<p>将这个条件带入$n=2$时的$\eqref{eq:g_sup_constraint}$式，再令$\g_1=\g_2$就能得到上式的结果。</p>
+<blockquote>
+<p>Remark 上面的不等式是要求了$\g_1=\g_2$的结果，否则的话，不等式中会比较复杂，完整上界应该是$(\g_1,\g_2)$平面上的一条曲线（而且应该是凸的）。</p>
+<p>展望 从前面的计算可以看到，$\g_n$的上界的具体计算并不trivial。</p>
+<ul>
+<li><p>给定$\qinner{\Psi_i}{\Psi_j}$,如何快速有效地具体对$\g_n$地上界进行数值计算？</p>
+</li>
+<li><p>如Remark中所说，$\g_n$的上界并不独立，而是$(\g_1,\g_2,…,\g_n)$上的一个凸的超曲面——是否有进一步研究的空间？不同的$\g_i$之间，是不是可以进行tradeoff?</p>
+</li>
+<li><p>这是一个非常松的上界；有没有更tight的上界估计？</p>
+</li>
+</ul>
+<p>这些都是可以进行进一步研究的问题和方向。   </p>
+<p>Remark 如果有$\{\ket{\Psi_i}\}正交\Leftrightarrow \qinner{\Psi_i}{\Psi_j}=\delta_{ij}$,那么$X^{(1)},X_P^{(2)}$退化为对角矩阵，前述的正定矩阵条件简化为：</p>
+<script type="math/tex; mode=display">
+\qinner{\Psi_i}{\Psi_i}-\gamma_i\qinner{\Psi_i}{\Psi_i}^2\qinner{P^{(i)}}{P^{(i)}}\ge0\\
+\Rightarrow1-\g_i\ge0\tag{7}</script><p>于是$\g_i$的上界就是$100\%$,概率克隆成为确定克隆。这说明当$\{\ket{\Psi_i}\}$正交时，$\text{Probabilistic Cloning}$会回到$\text{Deterministic Cloning}$的情形。</p>
+</blockquote>
+<h3 id="克隆一份-Rightarrow-克隆多份"><a href="#克隆一份-Rightarrow-克隆多份" class="headerlink" title="克隆一份$\Rightarrow$克隆多份"></a>克隆一份$\Rightarrow$克隆多份</h3><blockquote>
+<p>注：前面的问题我记为【克隆一份=克隆<em>出</em>两份】量子态，下同。</p>
+</blockquote>
+<p>以上的讨论针对的是【给定一份量子态、克隆出两份量子态】的问题。(A-&gt;AB)论文中称为$1\to2$。那克隆多份——$1\to3,1\to m(m\in\mathbb{N}),甚至1\to\infty$有没有可能呢？</p>
+<p>值得注意的是，概率克隆并非是”没有风险的买卖”。以克隆如果(1-&gt;2的)概率克隆一旦失败，整个系统的态落至$\ket{\Phi_{ABP}^{(i)}}$,那么原来的A的状态也毁了。如果还想克隆一个态出来：</p>
+<ul>
+<li>要么重新制备一个A的态$\ket{\Psi_i}$</li>
+<li>要么，如果不能制备/A的态只有一个，那就克隆不了了。</li>
+</ul>
+<p>也就是说，$1\to m+1$克隆势必比$1\to m$克隆更困难，总体成功概率也更小$(\g_i^{(m+1)}&lt;\g_i^{(m)})$，或根本不能概率克隆。</p>
+<p>作者在论文中提出，$\{\ket{\Psi_i}\}$能被克隆出$m$份的充要条件是</p>
+<script type="math/tex; mode=display">
+X^{(1)}-\sqrt\Gamma X_P^{(m)}\sqrt\Gamma^\dagger是半正定矩阵\tag{8}</script><p>其中$X_P^{(m)}=\left[\qinner{\Psi_i}{\Psi_j}^m\qinner{P^{(i)}}{P^{(j)}}\right]$.</p>
+<p><strong>证明：</strong></p>
+<p>记$\overbrace{\ket{\Psi}\otimes\ket{\Psi}\otimes\cdots\otimes\ket{\Psi}}^{k个}=\ket{\Psi}^k$.</p>
+<p>记A为态给定的系统，$B=(B_1,\cdots,B_{m-1})$为要克隆的系统。</p>
+<p>扩展$1\to2$的证明，我们考虑的幺正算符变为:</p>
+<script type="math/tex; mode=display">
+U\big[\ket{\Psi_i}\ket{\Sigma}^{m-1}\ket{P_0}\big]=\sqrt{\g_i}\ket{\Psi_i}^m\ket{P^{(i)}}+\sqrt{1-\g_i}\ket{\Phi_{ABP}^{(i)}}\tag{9}</script><p>从而，对应的矩阵方程变为：</p>
+<script type="math/tex; mode=display">
+X^{(1)}=\sqrt\Gamma X_P^{(m)}\sqrt\Gamma^\dagger+\sqrt{I-\Gamma}Y\sqrt{I-\Gamma}^\dagger\tag{10}</script><p>随后同理可证。</p>
+<blockquote>
+<p>Remark/展望：通过公式可以发现，这里论文考虑的，是由一份量子态同时克隆出剩余$m-1$个态，即一步到位。</p>
+<p>另一种很自然的想法是，如果克隆第二份成功，再拿这两份量子态去试图克隆第三份、第四份…乃至更多的量子态。这种克隆方案有没有进一步探究的价值呢？</p>
+<p>这里稍微多分析一下。假设目标设为克隆出三份量子态（即克隆两份），那么两种失败可能：</p>
+<ul>
+<li>第一次克隆就失败了，原本和副本都没有了</li>
+<li>第一次克隆成功了。这时候有两次失败的机会可以用来挥霍。如果这次克隆失败了，手头还有一份量子态；如果成功了，就成功克隆出了三份量子态</li>
+</ul>
+<p>抽象一下，很容易发现这是一个<strong>经典的随机过程问题</strong>：初始在第一级楼梯，每步分别有$\g_i$和$1-\g_i$概率向上和向下走一级楼梯；走到第零级楼梯就宣告失败，走到$m$级楼梯就算成功。求</p>
+<ul>
+<li>游戏失败&amp;成功的概率分别是多少？</li>
+<li>成功时花费的步数的分布列是多少？期望和方差是多少？</li>
+</ul>
+<p>再进一步的，如果想克隆出$M$个态，而手头的的设备能一次性以成功概率$\g_i^{(m)}$克隆出$m$个量子态，那这个问题的答案又是多少？如果手头的设备克隆失败会一次性摧毁$m_d&lt;m$(而不是摧毁所有态)，那问题的答案又是多少？如果可选一次性克隆$m’\leq m$个态，那最佳的总体克隆策略是什么？——这么奇怪的情形，不知道是不是只存在于我的胡思乱想之中。</p>
+</blockquote>
+<h3 id="克隆无穷份"><a href="#克隆无穷份" class="headerlink" title="克隆无穷份"></a>克隆无穷份</h3><p>前面考虑了$\qinner{\Psi_i}{\Psi_j}=\delta_{ij}$的极限情况，下面来考虑另一个极限：$m\to\infty$.</p>
+<p>如果我们可以从一个系综中获得无数份相同的量子态进行充分多次测量，那么根据概率极限定律，总是可以以任意精度确定这个量子态的具体成分，例如$\ket{\Psi}=\a\ket{0}+\beta\ket{1}$中的$|\a|^2$和$|\b|^2$.进而，对量子态的分辨、重新制备，也就变得很trivial了。——克隆出的无穷份量子态恰好能满足这个要求，因此克隆出无穷份量子态有着独特的意义。</p>
+<p>论文中具体指出，一些量子态$\{\ket{\Psi_i}\}$是可分辨的当且仅当$X^{(1)}-\Gamma$是半正定的；可行的$\Gamma$矩阵构成了可能的成功分辨概率$\{\g_i\}$。具体的方案是：</p>
+<p>考虑幺正操作</p>
+<script type="math/tex; mode=display">
+U\left[\left|\Psi_{i}\right\rangle\left|\Psi_{B P}^{(0)}\right\rangle\right]=\sqrt{\gamma_{i}}\left|\Psi_{A B}^{(i)}\right\rangle\left|P_{i}\right\rangle+\sqrt{1-\gamma_{i}}\left|\Phi_{A B}^{(i)}\right\rangle\left|P_{n+1}\right\rangle, \quad(i=1,2, \cdots, n)\tag{11}</script><p>——其中$\{\ket{P_i}\}$是正交基。</p>
+<p>在幺正操作之后，再测量探针P，有两种结果：</p>
+<ul>
+<li>得到第$i$个结果，得出结论：原来的量子态是$\ket{\Psi_i}$</li>
+<li>得到第$n+1$个结果，测量失败，原来的量子态可能也保不住</li>
+<li>前面的系数告诉我们，成功概率是$\g_i$.</li>
+</ul>
+<p>值得注意的是，这是一个”概率测量“方案，即有可能测量失败，什么信息都得不到；但即使失败，我们也不会得到错误的结果。这里有一种在态的相似性与成功概率之间的trade-off.</p>
+<p>对应的矩阵方程为：</p>
+<script type="math/tex; mode=display">
+X^{(1)}=\Gamma+\sqrt{I_{n}-\Gamma}\left[\qinner{\Phi_{A B}^{(i)}}{\Phi_{A B}^{(j)}}\right] \sqrt{I_{n}-\Gamma}^{\dagger}\tag{12}</script><p>类似前面的推理，我们可以得到结论：</p>
+<script type="math/tex; mode=display">
+这些态可以分辨\Leftrightarrow存在幺正操作U\Leftrightarrow X^{(1)}-\Gamma是半正定矩阵\tag{13}</script><p>当然，也给出了$\Gamma$需要满足的条件，从而给出了$\g_i$的上界。</p>
+<p>作者给出了一个例子：</p>
+<p>$\ket{\Psi_1}$和$\ket{\Psi_{2,3}}$都正交，而$\ket{\Psi_2},\ket{\Psi_3}$不正交。此时的$X^{(1)}-\Gamma$是分块对角矩阵，那么最优的分辨概率是$\g_1=1$，而$\frac{\g_2+\g_3}{2}\leq1-|\qinner{\Psi_2}{\Psi_3}|$，当且仅当$\g_2=\g_3$取等。</p>
+<blockquote>
+<p>Remark 这是做了$\g_2=\g_3$简化后的结果。事实上，根据引理2，可以推出更一般情况下满足的不等式是：$(1-\g_1)(1-\g_2)\leq|\qinner{\Psi_2}{\Psi_3}|^2$</p>
+<p>这再次表示，$\g_i$的上界形式可能是比较复杂的，也许是值得进一步研究的。</p>
+<p>另一个推论是，如果量子态都相互正交，那$\g_i$都可以取到一，退化为确定性的分辨问题。</p>
+<p>Remark 在分辨过程(21)中，我们要求$P_i$相互正交，但是在之前的克隆中，并不需要$P^{(i)}$内部正交，只要求$P^{(i)}\leftrightarrow\Phi_{ABP}{(i)}$正交。为什么可以这么做呢？背后的原因是，<strong>克隆时我们只需要分辨克隆成功、克隆失败两种情况</strong>，因此只要求成功和失败时ABP量子态所处的子空间正交即可。而在<strong>分辨问题上，我们需要分辨每一种量子态</strong>，因此需要每一个$\left|\Psi_{A B}^{(i)}\right\rangle\left|P_{i}\right\rangle$都相互正交，从而对$P$测量后可以分离开来。</p>
+<p>这个更强的正交性的结果是，矩阵$\left[\qinner{\Phi_{A B}^{(i)}}{\Phi_{A B}^{(j)}}\qinner{P_i}{P_j}\right]$的非对角元消失了，最后在矩阵方程中就退化为了$\Gamma$.这是一个很有意思的结果：我们之前是假想无穷多次克隆，在$X_P^{(m)}$中令$m\to\infty$后非对角元$\to0$，使得$\sqrt\Gamma X_P^{(m)}\sqrt\Gamma^\dagger$退化为了$\Gamma$.这里则是为了分辨，令$P_i$正交，直接得到了对角阵$\Gamma$，有些殊途同归的意思。不过我设想的分辨和作者给出的分辨方案并不完全等价。</p>
+<p>问题：这里的系统B是不是必须的呢？只有A和P可以吗？还是说，加入B只是为了和前面的记号保持一致呢？</p>
+<p>展望：作者只从理论上预言了概率克隆和概率分辨的可能性并给出了基础理论，并没有说明如何实现。具体实现这一技术，是一个很显然的后续研究方向。搜索可以发现，作者郭院士已经在实验上研制成功了”概率量子克隆机和普适量子克隆机“。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>虽然量子信息中通过确定性演化（幺正演化）来克隆系统量子态是不可能的，但这不意味着概率克隆（引入测量）是不可能的。本文exploit了”测量后可以产生投影算符作用“这一特点，先引入探针P，幺正演化后再试图投影到克隆态。</p>
+<p>然而测量作为投影算符这一功能，是有代价的——不确定，有失败概率。作者给出，克隆成功概率$\g_i$的上界由如下条件确定：</p>
+<script type="math/tex; mode=display">
+X^{(1)}-\sqrt\Gamma X_P^{(m)}\sqrt\Gamma^\dagger半正定\tag{14}</script><p>作者还推广到了一组量子态可概率分辨的问题，分辨成功概率的上界由这一条件确定：</p>
+<script type="math/tex; mode=display">
+X^{(1)}-\Gamma半正定\tag{15}</script><p>注意，一个前提条件是，需要克隆/分辨的未知量子态从某个已知的有限集合中选取。而只有当这个集合中的态线性无关时，最后的这两个矩阵方程才是有解的。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Notes: Probabilistic Cloning and Identification of Linearly Inpendent Quantum States</p><p><a href="http://icychlorine.github.io/2022/01/14/Notes-Probabilistic-Cloning-and-Identification-of-Linearly-Inpendent-Quantum-States/">http://icychlorine.github.io/2022/01/14/Notes-Probabilistic-Cloning-and-Identification-of-Linearly-Inpendent-Quantum-States/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>IcyChlorine</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2022-01-14</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2022-01-14</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a><a class="icon" rel="noopener" target="_blank" title="ShareAlike" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons-sa"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><a class="link-muted mr-2" rel="tag" href="/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/">量子计算</a><a class="link-muted mr-2" rel="tag" href="/tags/%E9%87%8F%E5%AD%90%E6%80%81%E5%A4%8D%E5%88%B6/">量子态复制</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5fb48effefe98e0012650837&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/09/03/S-1-p-1-p-2-%E7%9A%84%E5%90%84%E7%A7%8D%E6%B1%82%E6%B3%95/"><span class="level-item">S=1/p+1/p^2+...的各种求法</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.webp" alt="李辰剑"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">李辰剑</p><p class="is-size-6 is-block">IcyChlorine</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing/Shanghai, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">9</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/IcyChlorine" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/IcyChlorine"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Bilibili" href="https://space.bilibili.com/35731772"><i class="fas fa-cannabis"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/li-chen-jian-29"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Netease-Cloud-Music" href="https://music.163.com/#/user/home?id=306748708"><i class="fab fa-itunes-note"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://space.bilibili.com/35731772" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bilibili</span></span><span class="level-right"><span class="level-item tag">space.bilibili.com</span></span></a></li><li><a class="level is-mobile" href="https://spiritedawaycn.github.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">SpiritedAwayCN&#039;s blog</span></span><span class="level-right"><span class="level-item tag">spiritedawaycn.github.io</span></span></a></li><li><a class="level is-mobile" href="https://florestan-eusebius.github.io/about.html" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">逸飞姐姐的博客</span></span><span class="level-right"><span class="level-item tag">florestan-eusebius.github.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-14T06:42:53.000Z">2022-01-14</time></p><p class="title"><a href="/2022/01/14/Notes-Probabilistic-Cloning-and-Identification-of-Linearly-Inpendent-Quantum-States/">Notes: Probabilistic Cloning and Identification of Linearly Inpendent Quantum States</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-09-03T04:57:25.000Z">2021-09-03</time></p><p class="title"><a href="/2021/09/03/S-1-p-1-p-2-%E7%9A%84%E5%90%84%E7%A7%8D%E6%B1%82%E6%B3%95/">S=1/p+1/p^2+...的各种求法</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-06-12T05:43:02.000Z">2021-06-12</time></p><p class="title"><a href="/2021/06/12/%E5%8E%9F%E5%AD%90%E6%A0%B8%E6%9C%89%E7%BB%93%E6%9E%84%E5%90%97%EF%BC%9F/">原子核有结构吗？</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-04T01:27:18.000Z">2021-04-04</time></p><p class="title"><a href="/2021/04/04/%E4%BB%8E%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%B0%E6%94%BE%E5%A4%A7%E5%99%A8-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%90%86%E8%A7%A3%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/">从二极管到放大器-手把手教你理解放大电路</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-03T12:18:28.000Z">2021-04-03</time></p><p class="title"><a href="/2021/04/03/Fourier%E6%96%B9%E6%B3%95%E4%B8%93%E6%A0%8F-%E4%BA%8C-%E4%BB%8E%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%88%B0%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">Fourier方法专栏(二)-从傅里叶级数到傅里叶变换</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E5%8E%9F%E5%AD%90%E6%A0%B8/"><span class="tag">原子核</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%B5%E5%AD%90/"><span class="tag">电子</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97/"><span class="tag">等比数列</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A7%86%E9%A2%91/"><span class="tag">视频</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"><span class="tag">论文笔记</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/"><span class="tag">量子力学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%87%8F%E5%AD%90%E6%80%81%E5%A4%8D%E5%88%B6/"><span class="tag">量子态复制</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/"><span class="tag">量子计算</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.webp" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2022 IcyChlorine</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
