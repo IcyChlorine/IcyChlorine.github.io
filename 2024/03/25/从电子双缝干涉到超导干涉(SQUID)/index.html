@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>从电子双缝干涉到超导干涉(SQUID) - IcyChlorine&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="IcyChlorine&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="IcyChlorine&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="MathJax.Hub.Config({   TeX: { equationNumbers: { autoNumber: &amp;quot;all&amp;quot; } } }); 作者 软件所 李辰剑审核 物理所 丁兆晴发布 2024-3-25 难度 大学理科水平 ★★★★  在超导量子计算的技术栈中，常常会出现一个名词：SQUID（超导干涉装置）。SQUID 非常重要，在量子计算、高精度磁场探测中都有应用，但原理乍一看又颇"><meta property="og:type" content="blog"><meta property="og:title" content="从电子双缝干涉到超导干涉(SQUID)"><meta property="og:url" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/"><meta property="og:site_name" content="IcyChlorine&#039;s Blog"><meta property="og:description" content="MathJax.Hub.Config({   TeX: { equationNumbers: { autoNumber: &amp;quot;all&amp;quot; } } }); 作者 软件所 李辰剑审核 物理所 丁兆晴发布 2024-3-25 难度 大学理科水平 ★★★★  在超导量子计算的技术栈中，常常会出现一个名词：SQUID（超导干涉装置）。SQUID 非常重要，在量子计算、高精度磁场探测中都有应用，但原理乍一看又颇"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID示意图.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/电子双缝干涉实验示意图.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/AB效应示意图.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/AB效应原论文.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/Aharanov%20GS%20profile.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/相位的敏感性.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/双缝干涉到SQUID.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID示意图.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID探测磁场1.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID探测磁场2.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/MEG.png"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/Squid_prototype.jpg"><meta property="og:image" content="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/charge%20qbit.png"><meta property="article:published_time" content="2024-03-25T08:06:20.000Z"><meta property="article:modified_time" content="2024-03-25T08:17:24.362Z"><meta property="article:author" content="IcyChlorine"><meta property="article:tag" content="量子计算"><meta property="article:tag" content="量子力学"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID示意图.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/"},"headline":"IcyChlorine's Blog","image":["http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID示意图.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/电子双缝干涉实验示意图.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/AB效应示意图.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/AB效应原论文.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/Aharanov%20GS%20profile.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/相位的敏感性.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/双缝干涉到SQUID.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID示意图.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID探测磁场1.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID探测磁场2.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/MEG.png","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/Squid_prototype.jpg","http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/charge%20qbit.png"],"datePublished":"2024-03-25T08:06:20.000Z","dateModified":"2024-03-25T08:17:24.362Z","author":{"@type":"Person","name":"IcyChlorine"},"description":"MathJax.Hub.Config({   TeX: { equationNumbers: { autoNumber: &quot;all&quot; } } }); 作者 软件所 李辰剑审核 物理所 丁兆晴发布 2024-3-25 难度 大学理科水平 ★★★★  在超导量子计算的技术栈中，常常会出现一个名词：SQUID（超导干涉装置）。SQUID 非常重要，在量子计算、高精度磁场探测中都有应用，但原理乍一看又颇"}</script><link rel="canonical" href="http://icychlorine.github.io/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.webp" alt="IcyChlorine&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-03-25T08:06:20.000Z" title="2024/3/25 16:06:20">2024-03-25</time>发表</span><span class="level-item"><time dateTime="2024-03-25T08:17:24.362Z" title="2024/3/25 16:17:24">2024-03-25</time>更新</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">从电子双缝干涉到超导干涉(SQUID)</h1><div class="content"><p><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "all" } }
+});
+</script><br><strong>作者</strong> 软件所 李辰剑<br><strong>审核</strong> 物理所 丁兆晴<br><strong>发布</strong> 2024-3-25</p>
+<p><strong>难度</strong> 大学理科水平 ★★★★</p>
+<hr>
+<p>在超导量子计算的技术栈中，常常会出现一个名词：SQUID（超导干涉装置）。SQUID 非常重要，在量子计算、高精度磁场探测中都有应用，但原理乍一看又颇为复杂，使读者觉得食之无味、弃之可惜。于是，在这篇文章中，我将试图从电子双缝衍射和 AB 效应出发，以一种比较自然的方式引入 SQUID 的结构。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><strong>一 SQUID 简介</strong></p>
+<p><strong>二 电子双缝衍射实验</strong></p>
+<p><strong>三 Aharanov-Bohm 效应</strong></p>
+<p><strong>四 超导量子干涉 (SQUID)</strong></p>
+<h2 id="一-SQUID-简介"><a href="#一-SQUID-简介" class="headerlink" title="一 SQUID 简介"></a>一 SQUID 简介</h2><p>SQUID 的全称是 Superconducting QUantum Interference Device, 即超导量子干涉装置。SQUID 的结构很简单，在一块复联通的（即一块挖了洞的超导体）上加上两个约瑟夫森结，便得到了最基本的 SQUID。由于电子波函数的相位会受到周遭磁场（准确来说是磁矢势）的影响，因此在当中那个洞被磁场穿过时，旁边超导体内电子对波函数的相位便会发生变化。这种变化在超导体被断开的约瑟夫森结处造成了相位差，通过约瑟夫森结的电流便会相应地发生变化，产生宏观可观测的效应。量子力学告诉我们，通过当中洞孔的磁通仅仅变化一个磁通量子 $\Phi_0=\frac{h}{2e}$ 时，电子波函数的相位就会变化 $2\pi$，也就是转过”一整圈“。磁通量子的数值正比于普朗克常数、是一个非常小的物理量，这使得 SQUID 对中磁场的变化极为敏感。在普通导体中，晶格碰撞太厉害、耗散非常严重，电子波函数的相位会收到强烈的干扰，难以形成稳定干涉；因此，只有在无耗散的超导材料中，电子波函数的干涉才能稳定进行。由于最终是相位差造成了可观测效应，因此这一装置又被称为“干涉装置”。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID示意图.png"><br>
+    <font color="#888888" size="2">SQUID 示意图<br><br></font>
+</div>
+
+<h2 id="二-电子双缝衍射实验"><a href="#二-电子双缝衍射实验" class="headerlink" title="二 电子双缝衍射实验"></a>二 电子双缝衍射实验</h2><p>电子双缝衍射实验大家也许并不陌生，这可能是量子力学的科普中被出现频率最高的一个实验了。再电子双缝干涉中，单个电子的波函数同时经过双缝，在自由空间中传播、最终到达到观察平面，形成命案相间的干涉条纹。为了简化问题，不妨假设在自由空间中传播的电子是平面波（略去归一化常数），即可以写成如下的形式：</p>
+<script type="math/tex; mode=display">
+\newcommand\vec[1]{\boldsymbol{ #1}}
+\psi(\vec r)=e^{i\vec p\cdot\vec r/\hbar}</script><div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/电子双缝干涉实验示意图.png"><br>
+    <font color="#888888" size="2">电子双缝干涉实验示意图<br><br></font>
+</div>
+
+<p>那么沿两条不同路径来到观察平面上的某一点 $x$ 时，两臂的波函数就会产生相位差：</p>
+<script type="math/tex; mode=display">
+\renewcommand\dd{\mathrm{d}}
+\Delta\phi_0=\frac{1}{\hbar}\int_{C_1}\vec p\cdot\dd\vec l-\frac{1}{\hbar}\int_{C_2}\vec p\cdot\dd\vec l = \frac{1}{\hbar}p\Delta l</script><p>其中 $\Delta l$ 表示路径 $C_1$ 和 $C_2$ 的长度之差。由于相位会随着空间位置的变化而变化，因此观察平面上不同位置的波函数便会干涉相长或者相消，形成类似正弦函数的震荡变化趋势。（见左图的观察平面）</p>
+<p>注意，电子双缝衍射和光的双缝衍射实验非常相似，只是把电磁学中双缝衍射实验的对象从光换成了电子。但关键之处在于，我们将电子看成了<strong>(i)有相位且(ii)有空间弥散</strong>的波函数，这是经典电磁学所没有考虑过的。在经典电磁学中，电子只是一个没有体积、完全聚集的点粒子，相位就更无从谈起了。</p>
+<span id="more"></span>
+<h2 id="三-Aharanov-Bohm-效应"><a href="#三-Aharanov-Bohm-效应" class="headerlink" title="三 Aharanov-Bohm 效应"></a>三 Aharanov-Bohm 效应</h2><p>在有磁场的情况下，上述实验会发生怎样的变化呢？理论物理诉我们，当电磁场存在的时候，电子的“动量”会变成 $\vec p=m\vec v\to\vec P=m\vec v+q\vec A$，需要带上电磁场的动量。这里的 $\vec A$ 是一个被称为“磁矢势”的物理量。满足</p>
+<script type="math/tex; mode=display">
+\oint_{\partial S} \vec A\cdot \dd \vec l=\iint_S \vec B\cdot\dd \vec S=\Phi_S</script><p>即，绕着一个曲面的磁矢势积分等于磁场在这个曲面上的面积分，也就等于这个曲面的磁通量。对磁矢势 $\vec A$ 的详细论述我们暂且按下不表，这里我们只需要知道它和电场磁场一样是一种描述电磁场的方式，只不过略微高级一些。</p>
+<blockquote>
+<p>如果你对技术细节感兴趣的话，在电磁场中电子波函数的薛定谔方程会相应地变为：</p>
+<script type="math/tex; mode=display">
+i\hbar\frac{\partial}{\partial t}\psi(\vec r,t)=\left[\frac{(- i\hbar\nabla{\color{crimson}-q\vec A})^2}{2m}+V(\vec r, t)\right]\psi(\vec r, t)</script><p>注意，红色项是新加入的。这从原理上解释了下面波函数的变化。</p>
+</blockquote>
+<p>此时，平面波自由电子，的波函数描述也需要相应地把动量 $\vec p$ 替换成「正则动量」$\vec P$：</p>
+<script type="math/tex; mode=display">
+\psi(\vec r)=e^{i\vec{\color{crimson}P}\cdot\vec r/\hbar}</script><p>这告诉我们，<strong>当空间中存在磁场时，磁场（或对应的磁矢势 $\vec A$）也会影响电子波函数的相位。</strong></p>
+<p>由于 $ \vec A(\vec r)$ 的存在，如果 $\vec P$ 在空间中有变化、不是常数，怎么办呢？这时只需要把空间拆成很多份，分开计算电子走过每一段路程时 $\vec P$ 的贡献即可。反映到波函数上，就是指数上的常值矢量变成了沿空间路径的积分（和前面一样，忽略振幅的变化）：</p>
+<script type="math/tex; mode=display">
+\psi(\vec r)/\psi(\vec r_0)=\exp\left\{\frac{i}{\hbar}\int_{\vec r_0\to\vec r}\vec P(\vec r)\cdot\dd\vec l\right\}</script><p>假设我们在电子从小孔走向观察平面的路径之间插入一些磁场——例如，插入一根纵向的通电螺线管——那么沿两条路径到达 $x$ 的电子波函数的相位差就变为：</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/AB效应示意图.png" style="zoom: 40%;"><br>
+    <font color="#888888" size="2">AB 效应示意图<br><br></font>
+</div>
+
+<script type="math/tex; mode=display">
+\begin{align}
+\Delta\phi&=\frac{1}{\hbar}\left(\int_{C_1}\vec P\cdot \dd\vec l-\int_{C_2}\vec P\cdot \dd\vec l\right)\\
+&=\frac{1}{\hbar}\left(\int_{C_1}\vec p\cdot \dd\vec l-\int_{C_2}\vec p\cdot \dd\vec l\right)
+-\frac{q}{\hbar}\left(\int_{C_1}\vec A\cdot \dd\vec l-\int_{C_2}\vec A\cdot \dd\vec l\right)
+\end{align}</script><p>注意，第一项就是我们前面计算得到的无磁场时的相位差，而第二项刚好就是沿着 ($C_1-C_2$) 闭合回路的积分</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&=\Delta \phi_0-\frac{q}{\hbar}\oint \vec A\cdot\dd\vec l\\
+&=\Delta\phi_0-\frac{q}{\hbar}\iint \vec B\cdot\dd\vec l\\
+&=\Delta\phi_0-\frac{q}{\hbar}\Phi
+\end{align}</script><p>利用前面提到的磁矢势满足的关系，就可以把第二部分写成穿过 ($C_1-C_2$) 回路的磁通。这个式子告诉我们，如果在电子双缝干涉实验中加入磁场，那么<strong>磁场就会在原有的空间相位差之外额外引入一项相差</strong>，相差的大小取决于穿过回路的磁通。反映到干涉条纹上，便是干涉图案左右平移。Aharanov 和 Bohm 在 1959 年预言了这一现象，在 1960 年便在实验中得到证实。这一现象也因此被命名为 Aharanov-Bohm 效应，或简称 AB 效应。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/AB效应原论文.png"><br>
+    <font color="#888888" size="2">AB 效应原论文，目前谷歌学术引用量已接近 1 万<br><br></font>
+</div>
+
+<p>顺带一提，Aharanov 在量子力学的研究中做出了许多贡献，量子计算中著名的<strong>量子随机游走</strong>也是这位大佬提出的（准确来说是提出者之一）。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/Aharanov GS profile.png"><br>
+    <font color="#888888" size="2">Aharanov 的谷歌学术主页，提出 AB 效应的论文（第一篇）和提出量子随机游走的论文（第四篇）赫然在列<br><br></font>
+</div>
+
+<p>回顾整个 AB 效应，不难发现其中的<strong>关键物理效应在于磁场会影响周围电子的波函数，而且是影响相位。</strong>由于影响的方式是相位，这使得 干涉条纹对磁场的变化极为敏感。相位和一般物理量不同：一般物理量的很小的相对变化很难被检测到，例如，一根棍子的长度从 4 单位变成 4.001 单位，相对变化只有 0.25‰，很难检测。但是相位不同，不论是从 $2\pi$ 变成 $3\pi$ 还是从 $114514\pi$ 变成 $114515\pi$，反映在振幅上都是一次彻底的翻转。因此，<strong>基于相差的各种仪器往往能感受到极为灵敏的物理量变化</strong>，例如曾经用来探测以太的迈克耳孙-莫雷干涉仪、光学实验中用于高精度分光的马赫曾德尔干涉仪等等。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/相位的敏感性.png"><br>
+    <font color="#888888" size="2">相位是一种很“敏感”的物理量<br><br></font>
+</div>
+
+<p>前文中对 AB 效应可观测现象的描述是“干涉条纹的平移”；但是稍加思考就能发现，这一实验也可以反过来用来测量磁场，而且是高精度的测量。如果我们固定地关注观察平面上某一点的相差，便会发现它只依赖于磁场，准确来说，只依赖于穿过电子波函数回路的磁通：</p>
+<script type="math/tex; mode=display">
+\Delta \phi({\color{crimson} \Phi})=\Delta\phi_0+\color{crimson}{\frac{e}{\hbar}\Phi}</script><p>相差每变化 $\sim\pi$，就能产生明显的宏观可观测效应。在电子双缝干涉实验中，便是使干涉条纹发生变化。注意上式中的普朗克常数 $h$：这是一个极小的物理常数，常常和世界上各种最小的量子极限联系在一起。它出现在磁通的分母上，意味着即使磁通量只变化一点点，也能让相位差产生很大的变化。经过简单的计算可以得到，基于上式原理能探测的最小磁通变化为 $\sim 10^{-15}\ \mathrm{Wb}$。根据 $\Phi=BS$ 简单估计，如果能构成一个面积为 $1\ \mathrm{cm}^2$ 的电子波函数回环，那么对其中磁场强度的测量灵敏度可以达到 $\Delta B\sim 10^{-9} \mathrm{T}$，远超任何常规（不涉及量子效应的）磁场探测器的灵敏度！</p>
+<h2 id="四-超导量子干涉-SQUID"><a href="#四-超导量子干涉-SQUID" class="headerlink" title="四 超导量子干涉 (SQUID)"></a>四 超导量子干涉 (SQUID)</h2><p>AB 效应——或者说带磁场的电子双缝干涉——的设计固然巧妙，但如果直接用来测量磁场，还是有着种种不便之处。电子源、双缝屏，使用起来都有些麻烦。这时，<strong>如果把 AB 效应中电子波函数的通路固定在超导环中，就得到了超导量子干涉装置(Superconducting QUantum Interference Device)，</strong>一种前者的改良版本。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/双缝干涉到SQUID.png"><br>
+    <font color="#888888" size="2">双缝干涉到 SQUID<br><br></font>
+</div>
+
+<p>在 SQUID（的原型）中，电子干涉的上下两条路径被固定在了一个超导环中，电子的波函数沿超导环绕一圈，刚好对应了双缝干涉中电子两臂构成的闭合环路。为了让电子波函数能产生相位差，我们还需要在超导环的某处挖出一个缺口（右图的绿色部分）。如果把这个缺口连上，量子力学的基本原理会强制令两端的相位相等，相位差和干涉也就无从谈起了。</p>
+<blockquote>
+<p>有的读者可能会好奇，如果不留缺口、两端的相位会被强制相等；但如果在环中通入磁场，又会产生相位差。这两个结论看似矛盾，究竟是怎么回事呢？</p>
+<p>事实上，如果把缺口连上、考虑一个完整的超导环，那么波函数连续条件会强制将环内的磁通钳制在某些特定的值上。环内的磁通量只能取磁通量子 $\Phi_0=\frac{h}{2e}$ 的整数倍，这种情况下波函数的相位刚好处于连续状态。这一现象被称为「磁通量子化」。</p>
+<p>换句话说，波函数的连续性干过了磁场，电子的波函数会把磁场（准确来说是磁通）强行钳制在某些合适的值上。</p>
+</blockquote>
+<p>如果把波函数的相位比作河流中的水位，这就好像运河中两处高低不同的水面被闸门隔断。如果把闸门打开，水就会一泻千里，直至两边的水面持平；如果想维持水位留作他用，就必须造一道闸门隔断两端的水面。</p>
+<p>把干涉路径固定到超导环上之后，我们面临着一个新的问题：怎么观测相位差？在干涉实验中，我们有干涉条纹可以观测，但在超导环中并没有“干涉条纹”这样的东西。</p>
+<p>在 1962 年，Josephson 预言了一种超导材料的隧穿效应：如果在两块超导材料之间夹一块足够薄的非超导材料（其实空气也算”非超导材料“），那么超导体中的电子就会在两极之间发生隧穿，隧穿产生的电流与两端的相位差有关：</p>
+<script type="math/tex; mode=display">
+I=I_c\sin\Delta\phi</script><p>这里，$I_c$ 表示超导体的临界电流，是一个不随时空变化的常量。话句话说，如果薄层两侧的波函数没有相差，那就和两端的超导材料碰在一起的情况是相同的、什么事都不会发生；但如果在薄层的阻隔下两侧的波函数有相位差，就会产生电流，来试图<strong>平抑掉</strong>结两端的相差。<strong>整个约瑟夫森结总是倾向于回到最自然的状态，也即，波函数的相位连续、两端没有相差的状态。</strong></p>
+<p>这种效应被称为约瑟夫森效应，约瑟夫森也因为预言了该效应而获得了 1973 年的诺贝尔物理学奖。这种超导体-非超导体薄层-超导体的三明治一样的结构则被称为约瑟夫森结（Josephson juntcion），日后在超导量子计算机中发挥了重要的作用。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID示意图.png"><br>
+    <font color="#888888" size="2">实际的 SQUID 设计。右下是约瑟夫森结和隧穿电流的示意图。<br><br></font>
+</div>
+
+<p>回到 SQUID。不难发现，约瑟夫森效应为 SQUID 提供了一种简单有效的观测相位差的方式：直接测电流就行了！</p>
+<p>测量一个闭合回路中的电流未免有些麻烦；<strong>实际上的 SQUID 设计比我们刚刚提到的原型要更复杂一些</strong>：在超导环的两端连接有额外的电极，在两个电极之间有持续不断的电流通过；而且超导环上的约瑟夫森结也从一个变成了两个。借由两端电极之间的电流和电压，SQUID 便能将磁通转化为波函数的相差，再将相差转化为电流和电压的变化，从而以接近量子极限的极高灵敏度探测周遭的磁场。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID探测磁场1.png" style="zoom: 25%;"><br>
+    <font color="#888888" size="2">用 SQUID 探测磁场的等效电路图。其中“X”表示约瑟夫森结。图来自 wikipedia[wiki]<br><br></font>
+</div>
+
+
+
+
+<p>当 SQUID 中没有磁场穿过时，约瑟夫森结两端没有相差，外加的电流均等地穿过 SQUID 两桥上的两个约瑟夫森结，就好像什么都没发生一样。如果假设外加的电流是 $2I_0$，那么两个约瑟夫森结上的电流就分别是 $I_0$。而当磁场穿过 SQUID 中央的时候，磁场干扰电子波函数，波函数产生相差，最终相差积累在约瑟夫森结两端。还记得吗？<strong>整个约瑟夫森结总是倾向于回到最自然的状态，也即，波函数的相位连续的状态。</strong>我们先考虑两种特殊情况：</p>
+<ol>
+<li>如果穿过 SQUID 的磁通足够小，那么就会产生反向的（感应）电流来抵消磁通，这和经典中的楞次定律是一致的；</li>
+<li>如果穿过 SQUID 的磁通刚好是磁通量子 $\Phi_0$ 的整数倍，那么就对应了相位差是 $2\pi$ 的整数倍，这就等于没有相位差，不会有电流；<br>看明白了吗？相位差是一个周期性的东西，<strong>约瑟夫森结只需要让两端的相差来到 $2\pi$ 的整数倍，就能让两端的相位差连续，回到它最喜欢的状态。</strong></li>
+</ol>
+<p>明白了这一点，我们便可以考虑更一般的情况了：</p>
+<ol>
+<li>如果穿过 SQUID 的磁通小于半个磁通量子，即 $\Phi&lt;\Phi_0/2$，那么约瑟夫森结更倾向于让磁通回到 $0$，即产生反向的感应电流</li>
+<li>如果穿过 SQUID 的磁通小于半个磁通量子，即 $\Phi_0/2&lt;\Phi&lt;3\Phi_0/2$，那么约瑟夫森结<strong>更倾向于让磁通来到</strong>$\Phi_0$——此时对应约瑟夫森结上的相差刚好为 $2\pi$——即产生<strong>正向的</strong>感应电流——这和经典中的电磁感应定律是相反的。</li>
+<li><strong>加以推广</strong>，如果穿过 SQUID 的磁通满足 $n\Phi_0&lt;\Phi&lt;(n+1/2)\Phi_0$，那么会产生反向的感应电流、驱使磁通回到 $n\Phi_0$；如果穿过 SQUID 的磁通满足 $(n+1/2)\Phi_0&lt;\Phi&lt;(n+1)\Phi_0$，那么会产生正向的感应电流、驱使磁通来到 $(n+1)\Phi_0$。<br>这里我们还差最后一点魔法：两边都是超导电流，怎么探测电流的变化呢？解决方案也很简单：加大电流，让一部分电流变成非超导电流，这样就会在 SQUID 两端产生可探测的电压。当相位变化时，约瑟夫森结上能通过的超导电流也会相应地发生变化（即前面的“感应电流”）。当电流足够大时，就可能会超出超导材料的临界电流，产生一部分受电阻影响的普通电流 $I_{ns}$。最后，根据大家熟悉的 $V=I_{ns}R$，SQUID 两端的电压也随之发生变化，从而产生可以由电压计测量到的电压变化。不难发现，电压随磁通的变化是周期性的。这样，我们就完成了对磁通的超敏感测量。</li>
+</ol>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/SQUID探测磁场2.png"><br>
+    <font color="#888888" size="2">磁通变化时 SQUID 两端电压的变化。图来自 wikipedia[wiki]<br><br></font>
+</div>
+
+<p>由于对磁场非常敏感，SQUID 最大的应用便是用来测量磁场。更有意思的是，什么地方会需要测量那么微弱的磁场呢？有一条令人意想不到的答案：生物。生物体内没有特别强烈的电磁活动，因此各种生物活动只能引发极微弱的磁场；但这些磁场在医学、生物学中又有着重要的应用。因此，SQUID 在测量生物磁场中得到了大量应用。早在 1970 年，便有科学家用 SQUID 测量了心脏在跳动时产生的磁场[6]。在神经科学中，SQUID 更是大显身手，成为了测量脑磁的尖端技术。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/MEG.png"><br>
+    <font color="#888888" size="2">使用 SQUID 的脑磁图（MEG）设备。图片来自[5].<br><br></font>
+</div>
+
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/Squid_prototype.jpg"><br>
+    <font color="#888888" size="2">准商用的 SQUID。图片来自 wiki[wiki]<br><br></font>
+</div>
+
+<p>除了在测量磁场方面的有应用外，SQUID 还在量子计算中找到了自己的一席之地。在上世纪末，科学家们发现一小块孤立的超导金属可以处在“里面有 $n$ 个电子对”和“里面有 $n+1$ 个电子对”的叠加态上，于是便可以用来设计量子比特。但是这样的量子比特太死板，不容易调节和控制，于是科学家们将 SQUID 和它结合起来，这样一来便可以调节穿过 SQUID 的磁通来调节量子比特的性质，从而进行量子计算。</p>
+<p>在下图中，上面的横杆是“孤立的超导金属”，下面的大块块是电子源（和环境连通的一块很大的超导金属），二者之间的两条竖杠便是两个约瑟夫森结。约瑟夫森结、电荷孤岛、电子源构成了一个空间上的闭合环路，从而构成了 SQUID。调节磁通 $\Phi$，便可以调节超导量子比特的性质。</p>
+<div align="center">
+    <img src="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/charge qbit.png"><br>
+    <font color="#888888" size="2">电荷量子比特的显微照片。上面的横杆是“孤立的超导金属”，下面的大块块是电子源（和环境连通的一块很大的超导金属），二者之间的两条竖杠便是两个约瑟夫森结。约瑟夫森结、电荷孤岛、电子源构成了一个空间上的闭合环路，从而构成了 SQUID。通过调节中间穿过的磁通 $\Phi$，便可以调节超导量子比特的性质，从而帮助进行量子计算。<br><br></font>
+</div>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1, 主要参考 1] Quantum Information &amp; Quantum Optics with Superconducting Circuits, by Juan Jose Garcia Ripoll, 2022.</p>
+<p>[2, 主要参考 2] 《电动力学》（第三版），郭宏硕 著，2008.</p>
+<p>[3, wiki] Wikipedia of SQUID, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/SQUID">https://en.wikipedia.org/wiki/SQUID</a>.</p>
+<p>[4, AB 效应原论文] <em>Significance of electromagnetic potentials in the quantum theory</em>, by Y Aharonov and D Bohm, on Physical Review, in 1959.</p>
+<p>[5, SQUID 在生物磁场测量中的应用] <em>SQUIDs in biomagnetism: a roadmap towards improved healthcare</em>， by Rainer Körber and many other authors, on <em>Superconductor Science and Technology</em>, in 2016.</p>
+<p>[6] Magnetocardiograms taken inside a shielded room with a superconducting point-contact magnetometer, by David Cohen and Edgar A. Edelsack and James E. Zimmerman, on <em>Applied Physics Letters</em>, in 1970.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>从电子双缝干涉到超导干涉(SQUID)</p><p><a href="http://icychlorine.github.io/2024/03/25/从电子双缝干涉到超导干涉(SQUID)/">http://icychlorine.github.io/2024/03/25/从电子双缝干涉到超导干涉(SQUID)/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>IcyChlorine</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-03-25</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-03-25</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a><a class="icon" rel="noopener" target="_blank" title="ShareAlike" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons-sa"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/">量子计算</a><a class="link-muted mr-2" rel="tag" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5fb48effefe98e0012650837&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/06/16/%E7%94%A8%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E8%A7%A3%E5%86%B3%E3%80%8A%E6%88%B4%E6%A3%AE%E7%90%83%E8%AE%A1%E5%88%92%E3%80%8B%E4%B8%AD%E7%9A%84%E7%94%9F%E4%BA%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98/"><span class="level-item">用线性规划解决《戴森球计划》中的生产规划问题</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.webp" alt="李辰剑"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">李辰剑</p><p class="is-size-6 is-block">IcyChlorine</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing/Shanghai, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">15</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/IcyChlorine" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/IcyChlorine"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Bilibili" href="https://space.bilibili.com/35731772"><i class="fas fa-cannabis"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/li-chen-jian-29"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Netease-Cloud-Music" href="https://music.163.com/#/user/home?id=306748708"><i class="fab fa-itunes-note"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://space.bilibili.com/35731772" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bilibili</span></span><span class="level-right"><span class="level-item tag">space.bilibili.com</span></span></a></li><li><a class="level is-mobile" href="https://spiritedawaycn.github.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">SpiritedAwayCN&#039;s blog</span></span><span class="level-right"><span class="level-item tag">spiritedawaycn.github.io</span></span></a></li><li><a class="level is-mobile" href="https://florestan-eusebius.github.io/about.html" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">逸飞姐姐的博客</span></span><span class="level-right"><span class="level-item tag">florestan-eusebius.github.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-25T08:06:20.000Z">2024-03-25</time></p><p class="title"><a href="/2024/03/25/%E4%BB%8E%E7%94%B5%E5%AD%90%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89%E5%88%B0%E8%B6%85%E5%AF%BC%E5%B9%B2%E6%B6%89(SQUID)/">从电子双缝干涉到超导干涉(SQUID)</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-16T13:48:29.000Z">2023-06-16</time></p><p class="title"><a href="/2023/06/16/%E7%94%A8%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E8%A7%A3%E5%86%B3%E3%80%8A%E6%88%B4%E6%A3%AE%E7%90%83%E8%AE%A1%E5%88%92%E3%80%8B%E4%B8%AD%E7%9A%84%E7%94%9F%E4%BA%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98/">用线性规划解决《戴森球计划》中的生产规划问题</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-12-31T12:16:00.000Z">2022-12-31</time></p><p class="title"><a href="/2022/12/31/Linux-0-11-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%80%9D%E8%80%83%E9%A2%98/">Linux-0.11 源码解析与思考题</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-12-19T01:05:22.000Z">2022-12-19</time></p><p class="title"><a href="/2022/12/19/Notes-A-Link-Layer-Protocol-for-Quantum-Networks/">Notes: A Link Layer Protocol for Quantum Networks</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-06-24T07:11:00.000Z">2022-06-24</time></p><p class="title"><a href="/2022/06/24/%E9%AB%98%E6%96%AF%E7%A7%AF%E5%88%86/">高斯积分</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">六月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8E%9F%E5%AD%90%E6%A0%B8/"><span class="tag">原子核</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BB%BA%E6%A8%A1/"><span class="tag">建模</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="tag">操作系统</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B8%B8%E6%88%8F/"><span class="tag">游戏</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%B5%E5%AD%90/"><span class="tag">电子</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%AF%E5%88%86/"><span class="tag">积分</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97/"><span class="tag">等比数列</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BA%A6%E6%9D%9F%E6%B1%82%E8%A7%A3/"><span class="tag">约束求解</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%A7%86%E9%A2%91/"><span class="tag">视频</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"><span class="tag">论文笔记</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/"><span class="tag">量子力学</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/"><span class="tag">量子计算</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%87%8F%E5%AD%90%E9%80%9A%E4%BF%A1/"><span class="tag">量子通信</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.webp" alt="IcyChlorine&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 IcyChlorine</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
